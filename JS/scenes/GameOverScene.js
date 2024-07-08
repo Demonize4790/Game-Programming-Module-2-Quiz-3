@@ -9,7 +9,7 @@ export default class GameOverScene extends Phaser.Scene {
     }
 
     preload() {
-        // Load assets like background image, buttons, and audio
+        // Load  image, buttons, and audio
         this.load.image('gameoverbackground', './assets/background/losingScene.png');
         this.load.image('restartButton', './Assets/Buttons/retryBtn.png');
         this.load.image('mainMenuButton', './Assets/Buttons/menuBtn.png');

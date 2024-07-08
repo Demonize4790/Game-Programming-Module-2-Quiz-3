@@ -18,7 +18,6 @@ export default class GameBootScene extends Phaser.Scene {
         // Loading text
         this.loadingText = this.add.bitmapText(centerX, centerY + 100, 'font', 'Getting some bread....', 40).setOrigin(0.5, 0.5);
 
-        //Fun fact
         const funFactText = this.add.bitmapText(centerX, centerY + 220, 'font', '', 20).setOrigin(0.5, 0.5);
 
         //Next scene

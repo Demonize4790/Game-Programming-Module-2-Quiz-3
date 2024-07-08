@@ -21,7 +21,6 @@ export default class gameScene extends Phaser.Scene {
     create() {
 
         
-        // Set the world bounds to match the size of the tile map
         this.physics.world.setBounds(0, 0, 1840, 850);
         this.cameras.main.setBounds(0, 0, 1840, 850);
         
@@ -38,15 +37,11 @@ export default class gameScene extends Phaser.Scene {
         const background = map.createLayer('Background', tileset, 0, 50);
         const foreground = map.createLayer('Foreground', tileset, 0, 50);
 
-        // Create the player sprite and enable physics
+        // player sprite and enable physics
             this.player = this.physics.add.sprite(100, 100, 'player');
             this.player.setBounce(0.2);
             this.player.setCollideWorldBounds(true);
             this.player.setScale(0.6);
-
-        // //Background Music
-        // this.gameBG = this.sound.add('gameBG', { volume: 0.9, loop: true });
-        // this.gameBG.play();
 
 
         //Audio
@@ -74,7 +69,7 @@ export default class gameScene extends Phaser.Scene {
         end.setCollisionByExclusion([-1]);
 
 
-        // Enable collision between the player and the tilemap layer
+        // Enable collision 
         this.physics.add.collider(this.player, foreground);
         this.colliderSpikes = this.physics.add.collider(this.player, this.Spike, this.playerDied, null, this);
         this.physics.add.collider(this.player, end, this.Win, null, this);
@@ -95,10 +90,10 @@ export default class gameScene extends Phaser.Scene {
 
         this.cursors = this.input.keyboard.createCursorKeys();
         
-        // Make the camera follow the player
+        //camera follow the player
         this.cameras.main.startFollow(this.player);
 
-        // Set initial zoom level (e.g., 2x zoom)
+        // Set initial zoom level 
         this.cameras.main.setZoom(3);
 
         //Movement event trigger
@@ -193,6 +188,7 @@ export default class gameScene extends Phaser.Scene {
     collectingCoins(player, coin) {
         coin.disableBody(true, true);
         this.pick.play();
+        
         //Scoring
         this.score += 100;
         this.scoreText.setText('Score: ' + this.score);
